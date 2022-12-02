@@ -7,9 +7,11 @@ import SwiftUI
 import PencilKit
 
 struct DrawingView: View {
+    @EnvironmentObject var networkRepository: NetworkRepository
     var dataRepository: DataRepository
     var item: DrawingItem
     @State var drawing = PKDrawing()
+    @State var aiImage: Image = .init(systemName: "plus")
     
     var body: some View {
         CanvasView(drawing: item.drawing, drawingPolicy: .anyInput, drawingDidChange: drawingDidChange)
@@ -24,7 +26,17 @@ struct DrawingView: View {
                         .foregroundColor(.red)
                 }
                 Button {
-                    // TODO: -
+                    Task {
+                        let foo = await networkRepository.requestImage("")
+                        switch foo {
+                        case .success(let data):
+                            let uiImage = UIImage(data: data)
+                            let image = Image(uiImage: uiImage!)
+                            self.aiImage = image
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    }
                 } label: {
                     Text("AI 이미지 생성")
                 }
@@ -40,6 +52,10 @@ struct DrawingView: View {
             .onAppear {
                 drawing = item.drawing
             }
+    }
+
+    func something() {
+
     }
     
     func drawingDidChange(canvasView: PKCanvasView) {

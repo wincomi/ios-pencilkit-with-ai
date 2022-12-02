@@ -8,8 +8,8 @@
 import Foundation
 
 enum EndPoint {
-    case foo
-    case bar
+    case textToImage(text: String)
+    case imageToImage(image: Data, text: String)
 }
 
 extension EndPoint: Requestable {
@@ -18,28 +18,30 @@ extension EndPoint: Requestable {
     }
 
     var scheme: String {
-        return "https"
+        return "http"
 
     }
 
     var base: String {
         switch self {
         default:
-            return ""
+            return "144.24.109.33:5000"
         }
     }
 
     var path: String {
         switch self {
-        default:
-            return ""
+        case .imageToImage:
+            return "/img2img"
+        case .textToImage:
+            return "/txt2img"
         }
     }
 
     var queryItem: [String: String] {
         switch self {
-        default:
-            return [:]
+        case .textToImage(let text), .imageToImage(_, let text):
+            return ["prompt": text]
         }
     }
 
@@ -47,6 +49,15 @@ extension EndPoint: Requestable {
         switch self {
         default:
             return ["Content-Type": "application/json"]
+        }
+    }
+
+    var body: Data? {
+        switch self {
+        case .imageToImage(let image, _):
+            return image
+        default:
+            return nil
         }
     }
 
@@ -61,8 +72,10 @@ extension EndPoint: Requestable {
     var urlRequest: URLRequest? {
         guard let url = self.url else { return nil}
         var request = URLRequest(url: url)
+        request.httpBody = body
         request.httpMethod = method.rawValue
         headers.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
+        print(request)
         return request
     }
 

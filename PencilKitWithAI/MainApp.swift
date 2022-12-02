@@ -11,6 +11,7 @@ struct MainApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(DataRepository())
+                .environmentObject(NetworkRepository())
         }
     }
 }
