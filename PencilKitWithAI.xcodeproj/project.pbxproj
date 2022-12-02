@@ -12,7 +12,7 @@
 		6C606352293A3AAE00EC5E18 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6C606351293A3AAE00EC5E18 /* SnapKit */; };
 		6C606355293A3ABC00EC5E18 /* RxAppState in Frameworks */ = {isa = PBXBuildFile; productRef = 6C606354293A3ABC00EC5E18 /* RxAppState */; };
 		F73ECBCD293A3C85007F4471 /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73ECBCC293A3C85007F4471 /* DataRepository.swift */; };
-		F73ECBCF293A3EC6007F4471 /* DrawingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73ECBCE293A3EC6007F4471 /* DrawingModel.swift */; };
+		F73ECBCF293A3EC6007F4471 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73ECBCE293A3EC6007F4471 /* DataModel.swift */; };
 		F73ECBD1293A3F78007F4471 /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73ECBD0293A3F78007F4471 /* DrawingViewController.swift */; };
 		F7A319B5293A3098004B95E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A319B4293A3098004B95E0 /* AppDelegate.swift */; };
 		F7A319B7293A3098004B95E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A319B6293A3098004B95E0 /* SceneDelegate.swift */; };
@@ -23,7 +23,7 @@
 
 /* Begin PBXFileReference section */
 		F73ECBCC293A3C85007F4471 /* DataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
-		F73ECBCE293A3EC6007F4471 /* DrawingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingModel.swift; sourceTree = "<group>"; };
+		F73ECBCE293A3EC6007F4471 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		F73ECBD0293A3F78007F4471 /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		F7A319B1293A3098004B95E0 /* PencilKitWithAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PencilKitWithAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7A319B4293A3098004B95E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 				F7A319B6293A3098004B95E0 /* SceneDelegate.swift */,
 				F7A319B8293A3098004B95E0 /* ViewController.swift */,
 				F73ECBCC293A3C85007F4471 /* DataRepository.swift */,
-				F73ECBCE293A3EC6007F4471 /* DrawingModel.swift */,
+				F73ECBCE293A3EC6007F4471 /* DataModel.swift */,
 				F73ECBD0293A3F78007F4471 /* DrawingViewController.swift */,
 				F7A319BD293A309B004B95E0 /* Assets.xcassets */,
 				F7A319BF293A309B004B95E0 /* LaunchScreen.storyboard */,
@@ -165,7 +165,7 @@
 				F7A319B9293A3098004B95E0 /* ViewController.swift in Sources */,
 				F73ECBD1293A3F78007F4471 /* DrawingViewController.swift in Sources */,
 				F73ECBCD293A3C85007F4471 /* DataRepository.swift in Sources */,
-				F73ECBCF293A3EC6007F4471 /* DrawingModel.swift in Sources */,
+				F73ECBCF293A3EC6007F4471 /* DataModel.swift in Sources */,
 				F7A319B5293A3098004B95E0 /* AppDelegate.swift in Sources */,
 				F7A319B7293A3098004B95E0 /* SceneDelegate.swift in Sources */,
 			);
