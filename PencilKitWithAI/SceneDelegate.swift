@@ -16,10 +16,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = scene as? UIWindowScene else { return }
 
         let viewController = DrawingViewController()
+        let dataRepository = DataRepository()
+        viewController.dataRepository = dataRepository
+        viewController.drawingIndex = 0
+        
         let navigationController = UINavigationController(rootViewController: viewController)
-        
-        let dataModel = DataModel()
-        
+                
         window = UIWindow(windowScene: windowScene)
         window?.overrideUserInterfaceStyle = .light
         window?.backgroundColor = .systemBackground

@@ -8,5 +8,5 @@ import PencilKit
 struct DataModel: Codable {
     static let canvasWidth: CGFloat = 768
     
-    var drawings: [PKDrawing] = []
+    var drawings: [PKDrawing] = [PKDrawing()]
 }

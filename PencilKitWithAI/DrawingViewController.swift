@@ -9,7 +9,9 @@ import SnapKit
 import PencilKit
 
 final class DrawingViewController: UIViewController {
-    var dataModel: DataModel!
+    var dataRepository: DataRepository!
+    var drawingIndex: Int!
+    var drawingImage: UIImage!
     
     private var canvasView: PKCanvasView!
     private var toolPicker: PKToolPicker!
@@ -21,6 +23,7 @@ final class DrawingViewController: UIViewController {
         
         // CanvasView
         self.canvasView = PKCanvasView()
+        canvasView.drawing = dataRepository.dataModel.drawings[drawingIndex]
         canvasView.drawingPolicy = .anyInput
         canvasView.delegate = self
         
@@ -41,11 +44,17 @@ final class DrawingViewController: UIViewController {
         self.canvasView.becomeFirstResponder()
         
         // ToolbarItems
-        let activityViewController = UIActivityViewController(activityItems: [], applicationActivities: nil)
         self.actionBarButtonItem = UIBarButtonItem(systemItem: .action, primaryAction: UIAction { _ in
+            let rect = CGRect(x: 0, y: 0, width: 1024, height: 1024)
+            let scale = UIScreen.main.scale
+            self.drawingImage = self.canvasView.drawing.image(from: rect, scale: scale)
+            
+            let activityViewController = UIActivityViewController(activityItems: [self.drawingImage!], applicationActivities: nil)
+            activityViewController.popoverPresentationController?.barButtonItem = self.actionBarButtonItem
+
             self.present(activityViewController, animated: true)
         })
-        activityViewController.popoverPresentationController?.barButtonItem = self.actionBarButtonItem
+        
 
         self.navigationItem.rightBarButtonItems = [actionBarButtonItem]
     }
@@ -53,7 +62,6 @@ final class DrawingViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        // Drawing 업데이트
     }
 }
 
@@ -75,7 +83,7 @@ private extension DrawingViewController {
 extension DrawingViewController: PKCanvasViewDelegate {
     // Drawing이 추가되었을 경우
     func canvasViewDrawingDidChange(_ canvasView: PKCanvasView) {
-
+        dataRepository.updateDrawing(canvasView.drawing, at: drawingIndex)
     }
 }
 

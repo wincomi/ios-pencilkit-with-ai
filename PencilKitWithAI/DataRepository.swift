@@ -19,7 +19,7 @@ final class DataRepository {
         loadDataModel()
     }
     
-    private func loadDataModel() {
+    func loadDataModel() {
         let dataModel: DataModel
         
         if FileManager.default.fileExists(atPath: fileURL.path) {
@@ -38,7 +38,7 @@ final class DataRepository {
         self.dataModel = dataModel
     }
     
-    private func saveDataModel() {
+    func saveDataModel() {
         do {
             let encoder = PropertyListEncoder()
             let data = try encoder.encode(self.dataModel)
@@ -46,5 +46,11 @@ final class DataRepository {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func updateDrawing(_ drawing: PKDrawing, at index: Int) {
+        dataModel.drawings[index] = drawing
+        saveDataModel()
+        print("updateDrawing")
     }
 }
