@@ -20,6 +20,9 @@
 		6C606365293A603700EC5E18 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C606364293A603700EC5E18 /* NetworkError.swift */; };
 		6C606367293A606000EC5E18 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C606366293A606000EC5E18 /* EndPoint.swift */; };
 		6C606369293A61BC00EC5E18 /* NetworkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C606368293A61BC00EC5E18 /* NetworkRepository.swift */; };
+		F7910C61293A68510091581B /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7910C5E293A68510091581B /* DrawingViewController.swift */; };
+		F7910C62293A68510091581B /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7910C5F293A68510091581B /* DataModel.swift */; };
+		F7910C63293A68510091581B /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7910C60293A68510091581B /* DataRepository.swift */; };
 		F7A319B5293A3098004B95E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A319B4293A3098004B95E0 /* AppDelegate.swift */; };
 		F7A319B7293A3098004B95E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A319B6293A3098004B95E0 /* SceneDelegate.swift */; };
 		F7A319B9293A3098004B95E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A319B8293A3098004B95E0 /* MainViewController.swift */; };
@@ -37,6 +40,9 @@
 		6C606364293A603700EC5E18 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		6C606366293A606000EC5E18 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		6C606368293A61BC00EC5E18 /* NetworkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRepository.swift; sourceTree = "<group>"; };
+		F7910C5E293A68510091581B /* DrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
+		F7910C5F293A68510091581B /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		F7910C60293A68510091581B /* DataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
 		F7A319B1293A3098004B95E0 /* PencilKitWithAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PencilKitWithAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7A319B4293A3098004B95E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7A319B6293A3098004B95E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +111,9 @@
 			children = (
 				F7A319B4293A3098004B95E0 /* AppDelegate.swift */,
 				F7A319B6293A3098004B95E0 /* SceneDelegate.swift */,
+				F7910C5F293A68510091581B /* DataModel.swift */,
+				F7910C60293A68510091581B /* DataRepository.swift */,
+				F7910C5E293A68510091581B /* DrawingViewController.swift */,
 				6C60635C293A40F500EC5E18 /* MainView */,
 				6C606356293A3CAB00EC5E18 /* NSCollectionLayoutSection + extension.swift */,
 				6C60635D293A5F6C00EC5E18 /* Network */,
@@ -202,9 +211,12 @@
 				F7A319B5293A3098004B95E0 /* AppDelegate.swift in Sources */,
 				F7A319B7293A3098004B95E0 /* SceneDelegate.swift in Sources */,
 				6C606367293A606000EC5E18 /* EndPoint.swift in Sources */,
+				F7910C63293A68510091581B /* DataRepository.swift in Sources */,
 				6C606359293A3CD600EC5E18 /* DrawingCell.swift in Sources */,
+				F7910C62293A68510091581B /* DataModel.swift in Sources */,
 				6C606363293A600F00EC5E18 /* Service.swift in Sources */,
 				6C606357293A3CAB00EC5E18 /* NSCollectionLayoutSection + extension.swift in Sources */,
+				F7910C61293A68510091581B /* DrawingViewController.swift in Sources */,
 				6C60635B293A403500EC5E18 /* MainViewModel.swift in Sources */,
 				6C606361293A5FF500EC5E18 /* ServiceImpl.swift in Sources */,
 				6C606365293A603700EC5E18 /* NetworkError.swift in Sources */,
