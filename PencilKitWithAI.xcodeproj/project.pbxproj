@@ -14,13 +14,16 @@
 		6C7F98F3293A73BB0017538F /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7F98EB293A73BA0017538F /* NetworkError.swift */; };
 		6C7F98F4293A73BB0017538F /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7F98EC293A73BA0017538F /* EndPoint.swift */; };
 		6C7F98F5293A73BB0017538F /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7F98ED293A73BA0017538F /* DataRepository.swift */; };
-		6C7F98F6293A73BB0017538F /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7F98EE293A73BA0017538F /* DataModel.swift */; };
 		6C7F98F8293A73EB0017538F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7F98F7293A73EB0017538F /* MainView.swift */; };
 		6C7F98FA293A74BD0017538F /* ImageRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7F98F9293A74BD0017538F /* ImageRow.swift */; };
 		F7A319BE293A309B004B95E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7A319BD293A309B004B95E0 /* Assets.xcassets */; };
 		F7A319C1293A309B004B95E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7A319BF293A309B004B95E0 /* LaunchScreen.storyboard */; };
 		F7D43ECE293A7209008C8A51 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D43ECD293A7209008C8A51 /* MainApp.swift */; };
 		F7D43ED0293A723A008C8A51 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D43ECF293A723A008C8A51 /* ContentView.swift */; };
+		F7D43ED7293A74B4008C8A51 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D43ED6293A74B4008C8A51 /* CanvasView.swift */; };
+		F7D43ED9293A74E4008C8A51 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D43ED8293A74E4008C8A51 /* DrawingView.swift */; };
+		F7D43EE0293A7DCD008C8A51 /* DrawingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D43EDF293A7DCD008C8A51 /* DrawingItem.swift */; };
+		F7D43EE2293A7E58008C8A51 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D43EE1293A7E58008C8A51 /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +34,6 @@
 		6C7F98EB293A73BA0017538F /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		6C7F98EC293A73BA0017538F /* EndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		6C7F98ED293A73BA0017538F /* DataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
-		6C7F98EE293A73BA0017538F /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		6C7F98F7293A73EB0017538F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		6C7F98F9293A74BD0017538F /* ImageRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRow.swift; sourceTree = "<group>"; };
 		F7A319B1293A3098004B95E0 /* PencilKitWithAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PencilKitWithAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +42,10 @@
 		F7A319C2293A309B004B95E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7D43ECD293A7209008C8A51 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
 		F7D43ECF293A723A008C8A51 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F7D43ED6293A74B4008C8A51 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		F7D43ED8293A74E4008C8A51 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		F7D43EDF293A7DCD008C8A51 /* DrawingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingItem.swift; sourceTree = "<group>"; };
+		F7D43EE1293A7E58008C8A51 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,11 +91,14 @@
 		F7A319B3293A3098004B95E0 /* PencilKitWithAI */ = {
 			isa = PBXGroup;
 			children = (
-				6C7F98EE293A73BA0017538F /* DataModel.swift */,
 				6C7F98ED293A73BA0017538F /* DataRepository.swift */,
+				F7D43EDF293A7DCD008C8A51 /* DrawingItem.swift */,
+				F7D43EE1293A7E58008C8A51 /* DataModel.swift */,
 				6C7F98E6293A73BA0017538F /* Network */,
 				F7D43ECD293A7209008C8A51 /* MainApp.swift */,
 				F7D43ECF293A723A008C8A51 /* ContentView.swift */,
+				F7D43ED8293A74E4008C8A51 /* DrawingView.swift */,
+				F7D43ED6293A74B4008C8A51 /* CanvasView.swift */,
 				6C7F98F7293A73EB0017538F /* MainView.swift */,
 				6C7F98F9293A74BD0017538F /* ImageRow.swift */,
 				F7A319BD293A309B004B95E0 /* Assets.xcassets */,
@@ -176,15 +185,18 @@
 			files = (
 				6C7F98F2293A73BB0017538F /* NetworkRepository.swift in Sources */,
 				6C7F98F3293A73BB0017538F /* NetworkError.swift in Sources */,
+				F7D43ED7293A74B4008C8A51 /* CanvasView.swift in Sources */,
 				6C7F98F4293A73BB0017538F /* EndPoint.swift in Sources */,
 				6C7F98EF293A73BA0017538F /* Requestable.swift in Sources */,
+				F7D43EE2293A7E58008C8A51 /* DataModel.swift in Sources */,
+				F7D43ED9293A74E4008C8A51 /* DrawingView.swift in Sources */,
 				F7D43ED0293A723A008C8A51 /* ContentView.swift in Sources */,
-				6C7F98F6293A73BB0017538F /* DataModel.swift in Sources */,
 				6C7F98F1293A73BA0017538F /* Service.swift in Sources */,
 				6C7F98F8293A73EB0017538F /* MainView.swift in Sources */,
 				6C7F98FA293A74BD0017538F /* ImageRow.swift in Sources */,
 				6C7F98F5293A73BB0017538F /* DataRepository.swift in Sources */,
 				F7D43ECE293A7209008C8A51 /* MainApp.swift in Sources */,
+				F7D43EE0293A7DCD008C8A51 /* DrawingItem.swift in Sources */,
 				6C7F98F0293A73BA0017538F /* ServiceImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

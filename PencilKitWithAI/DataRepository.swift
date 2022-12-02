@@ -13,13 +13,13 @@ final class DataRepository: ObservableObject {
         return documentsDirectory.appendingPathComponent("PencilKitWithAI.data")
     }
 
-    var dataModel = DataModel()
-        
+    @Published var dataModel = DataModel(drawingItems: [])
+
     init() {
-        loadDataModel()
+        load()
     }
     
-    func loadDataModel() {
+    private func load() {
         let dataModel: DataModel
         
         if FileManager.default.fileExists(atPath: fileURL.path) {
@@ -29,16 +29,16 @@ final class DataRepository: ObservableObject {
                 dataModel = try decoder.decode(DataModel.self, from: data)
             } catch {
                 print(error.localizedDescription)
-                dataModel = DataModel()
+                dataModel = DataModel(drawingItems: [])
             }
         } else {
-            dataModel = DataModel()
+            dataModel = DataModel(drawingItems: [])
         }
         
         self.dataModel = dataModel
     }
     
-    func saveDataModel() {
+    private func save() {
         do {
             let encoder = PropertyListEncoder()
             let data = try encoder.encode(self.dataModel)
@@ -48,9 +48,14 @@ final class DataRepository: ObservableObject {
         }
     }
     
-    func updateDrawing(_ drawing: PKDrawing, at index: Int) {
-        dataModel.drawings[index] = drawing
-        saveDataModel()
-        print("updateDrawing")
+    public func updateDrawing(_ drawing: PKDrawing, at index: Int) {
+        dataModel.drawingItems[index].drawing = drawing
+        save()
+    }
+    
+    public func insertDrawing(_ drawing: PKDrawing = PKDrawing(), name: String = "") {
+        let item = DrawingItem(name: name, drawing: drawing)
+        dataModel.drawingItems.append(item)
+        save()
     }
 }
