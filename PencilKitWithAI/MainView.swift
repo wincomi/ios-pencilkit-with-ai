@@ -10,13 +10,13 @@ import PencilKit
 
 struct MainView: View {
     @EnvironmentObject var dataRepository: DataRepository
+    @State var presentModal: Bool = false
 
     var body: some View {
         ScrollView {
             LazyVGrid(columns: Array(repeating: GridItem(), count: 5), alignment: .leading, spacing: 16) {
                 ForEach(dataRepository.dataModel.drawingItems) { item in
                     NavigationLink {
-                        // push
                     } label: {
                         ImageRow(item: item)
                     }
@@ -25,13 +25,16 @@ struct MainView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button {
-                        dataRepository.insertDrawing()
+                        presentModal.toggle()
                     } label: {
                         Image(systemName: "plus")
                     }
                 }
             }
             .padding()
+            .sheet(isPresented: $presentModal) {
+                AddSheetView()
+            }
 
         }
     }
