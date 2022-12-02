@@ -14,7 +14,7 @@ struct MainView: View {
 
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: Array(repeating: GridItem(), count: 5), alignment: .leading, spacing: 16) {
+            LazyVGrid(columns: Array(repeating: GridItem(), count: 3), alignment: .leading, spacing: 16) {
                 ForEach(dataRepository.dataModel.drawingItems) { item in
                     NavigationLink {
                         DrawingView(dataRepository: dataRepository, item: item)

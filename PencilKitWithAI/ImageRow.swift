@@ -13,8 +13,9 @@ struct ImageRow: View {
     var body: some View {
         VStack {
             Image(uiImage: item.image())
+                .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 150, height: 150)
+                .frame(width: 256, height: 256)
                 .padding()
                 .background()
                 .clipShape(RoundedRectangle(cornerRadius: 10))

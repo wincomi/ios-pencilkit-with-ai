@@ -13,6 +13,8 @@ struct DrawingView: View {
     
     var body: some View {
         CanvasView(drawing: item.drawing, drawingPolicy: .anyInput, drawingDidChange: drawingDidChange)
+            .frame(width: 512, height: 512)
+//            .border(Color.black)
             .ignoresSafeArea()
             .toolbar {
                 Button {

@@ -20,7 +20,7 @@ extension DrawingItem: Equatable {
 
 extension DrawingItem {
     func image() -> UIImage {
-        let thumbnailRect = CGRect(x: 0, y: 0, width: 768, height: 768)
+        let thumbnailRect = CGRect(x: 0, y: 0, width: 512, height: 512)
         let thumbnailScale = UIScreen.main.scale
 
         return drawing.image(from: thumbnailRect, scale: thumbnailScale)
