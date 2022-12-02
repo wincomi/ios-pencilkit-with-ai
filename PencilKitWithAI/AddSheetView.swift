@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct AddSheetView: View {
-    @State var fileName: String
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var dataRepository: DataRepository
+    @State var fileName: String = ""
     @State var selected: Bool = false
-    @State var keyWord: String
+    @State var keyWord: String = ""
+
     var body: some View {
         NavigationView {
             Form {
@@ -60,6 +63,19 @@ struct AddSheetView: View {
                     Text("키워드")
                 }
 
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("취소", role: .cancel) {
+                        dismiss()
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("제출") {
+                        dataRepository.insertDrawing(name: fileName)
+                        dismiss()
+                    }
+                }
             }
             .navigationBarTitleDisplayMode(.inline)
         }
