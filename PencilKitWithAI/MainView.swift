@@ -17,6 +17,7 @@ struct MainView: View {
             LazyVGrid(columns: Array(repeating: GridItem(), count: 5), alignment: .leading, spacing: 16) {
                 ForEach(dataRepository.dataModel.drawingItems) { item in
                     NavigationLink {
+                        DrawingView(dataRepository: dataRepository, item: item)
                     } label: {
                         ImageRow(item: item)
                     }
@@ -35,7 +36,7 @@ struct MainView: View {
             .sheet(isPresented: $presentModal) {
                 AddSheetView()
             }
-
+            .navigationTitle("PencilKit with AI")
         }
     }
 }

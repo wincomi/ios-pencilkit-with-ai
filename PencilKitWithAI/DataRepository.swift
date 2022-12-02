@@ -54,8 +54,16 @@ final class DataRepository: ObservableObject {
     }
     
     public func update(_ item: DrawingItem) {
-        let index = dataModel.drawingItems.firstIndex { $0 == item }
-        dataModel.drawingItems[index!] = item
+        let index = self.dataModel.drawingItems.firstIndex { $0 == item }
+        self.dataModel.drawingItems[index!] = item
+
+        save()
+    }
+    
+    public func delete(_ item: DrawingItem) {
+        let index = self.dataModel.drawingItems.firstIndex { $0 == item }
+
+        self.dataModel.drawingItems.remove(at: index!)
         save()
     }
     
