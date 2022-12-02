@@ -8,14 +8,15 @@ import PencilKit
 
 struct DrawingView: View {
     var dataRepository: DataRepository
-    @State var item: DrawingItem
+    var item: DrawingItem
+    @State var drawing = PKDrawing()
     
     var body: some View {
         CanvasView(drawing: item.drawing, drawingPolicy: .anyInput, drawingDidChange: drawingDidChange)
             .ignoresSafeArea()
             .toolbar {
                 Button {
-                    dataRepository.update(item)
+                    dataRepository.update(DrawingItem(id: item.id, name: item.name, drawing: drawing))
                 } label: {
                     Text("저장")
                 }
@@ -27,10 +28,13 @@ struct DrawingView: View {
             }
             .navigationTitle(item.name == "" ? "제목 없음" : item.name)
             .navigationBarTitleDisplayMode(.inline)
+            .onAppear {
+                drawing = item.drawing
+            }
     }
     
     func drawingDidChange(canvasView: PKCanvasView) {
-        self.item.drawing = canvasView.drawing
+        drawing = canvasView.drawing
 //        dataRepository.update(item)
     }
 }
