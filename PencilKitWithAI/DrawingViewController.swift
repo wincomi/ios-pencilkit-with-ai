@@ -9,8 +9,12 @@ import SnapKit
 import PencilKit
 
 final class DrawingViewController: UIViewController {
+    var dataModel: DataModel!
+    
     private var canvasView: PKCanvasView!
     private var toolPicker: PKToolPicker!
+    
+    private var actionBarButtonItem: UIBarButtonItem!
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -31,10 +35,25 @@ final class DrawingViewController: UIViewController {
         self.toolPicker.setVisible(true, forFirstResponder: canvasView)
         self.toolPicker.addObserver(canvasView)
         self.toolPicker.addObserver(self)
-        updateLayout(for: toolPicker)
+        self.updateLayout(for: toolPicker)
         
         // ToolPicker가 보이도록 canvasView를 firstResponsder로 설정
         self.canvasView.becomeFirstResponder()
+        
+        // ToolbarItems
+        let activityViewController = UIActivityViewController(activityItems: [], applicationActivities: nil)
+        self.actionBarButtonItem = UIBarButtonItem(systemItem: .action, primaryAction: UIAction { _ in
+            self.present(activityViewController, animated: true)
+        })
+        activityViewController.popoverPresentationController?.barButtonItem = self.actionBarButtonItem
+
+        self.navigationItem.rightBarButtonItems = [actionBarButtonItem]
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Drawing 업데이트
     }
 }
 

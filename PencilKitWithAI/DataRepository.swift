@@ -5,7 +5,6 @@
 
 import Foundation
 import PencilKit
-import RxCocoa
 
 final class DataRepository {
     private var fileURL: URL {
@@ -14,8 +13,8 @@ final class DataRepository {
         return documentsDirectory.appendingPathComponent("PencilKitWithAI.data")
     }
 
-    var dataModel = PublishRelay<DataModel>()
-    
+    var dataModel = DataModel()
+        
     init() {
         loadDataModel()
     }
@@ -36,6 +35,16 @@ final class DataRepository {
             dataModel = DataModel()
         }
         
-        self.dataModel.accept(dataModel)
+        self.dataModel = dataModel
+    }
+    
+    private func saveDataModel() {
+        do {
+            let encoder = PropertyListEncoder()
+            let data = try encoder.encode(self.dataModel)
+            try data.write(to: fileURL)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
