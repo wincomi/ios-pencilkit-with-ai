@@ -17,15 +17,17 @@ extension EndPoint: Requestable {
         return .post
     }
 
-    var scheme: String {
-        return "http"
-
-    }
+//    var scheme: String {
+//        return "http"
+//
+//    }
 
     var base: String {
         switch self {
         default:
-            return "144.24.109.33:5000"
+//            return
+            let string = "http://144.24.109.33:5000"
+            return string.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         }
     }
 
@@ -48,7 +50,7 @@ extension EndPoint: Requestable {
     var headers: [String: String] {
         switch self {
         default:
-            return ["Content-Type": "application/json"]
+            return [:]
         }
     }
 
@@ -63,7 +65,7 @@ extension EndPoint: Requestable {
 
     var url: URL? {
         var component = URLComponents(string: base)
-        component?.scheme = scheme
+//        component?.scheme = scheme
         component?.path.append(path)
         component?.queryItems = queryItem.map { URLQueryItem(name: $0.key, value: $0.value) }
         return component?.url
@@ -75,7 +77,6 @@ extension EndPoint: Requestable {
         request.httpBody = body
         request.httpMethod = method.rawValue
         headers.forEach { request.addValue($0.value, forHTTPHeaderField: $0.key) }
-        print(request)
         return request
     }
 

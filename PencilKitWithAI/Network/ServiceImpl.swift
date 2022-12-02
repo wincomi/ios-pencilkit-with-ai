@@ -15,6 +15,7 @@ extension ServiceImpl: Service {
         return await withCheckedContinuation { continuation in
 
             guard let urlRequest = endPoint.urlRequest else { return continuation.resume(returning: .failure(.invaildURL)) }
+            
 
             urlSession.dataTask(with: urlRequest) { data, response, error in
                 guard error == nil else {
