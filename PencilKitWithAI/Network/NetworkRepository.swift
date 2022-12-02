@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit.UIImage
-import RxSwift
 
 final class NetworkRepository {
     private let service: Service = ServiceImpl()

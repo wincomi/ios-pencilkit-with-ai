@@ -6,8 +6,7 @@
 //
 
 import Foundation
-import RxSwift
 
 protocol Service {
-    func fetch(endPoint: Requestable) -> Single<Data>
+    func fetch(from api: Requestable) async -> Result<Data, NetworkError>
 }

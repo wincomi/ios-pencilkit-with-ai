@@ -6,31 +6,47 @@
 //
 
 import Foundation
-import RxSwift
 
-final class ServiceImpl: Service {
-    func fetch(endPoint: Requestable) -> Single<Data> {
-        return Single.create { observer in
-            guard let request = endPoint.urlRequest else {
-                observer(.failure(NetworkError.invalidURL))
-                return Disposables.create()
-            }
+final class ServiceImpl {
+    private let urlSession = URLSession.shared
+}
+extension ServiceImpl: Service {
+    func fetch(from endPoint: Requestable) async -> Result<Data, NetworkError> {
+        return await withCheckedContinuation { continuation in
 
-            URLSession.shared.dataTask(with: request) { data, response, _ in
-                guard let response = response as? HTTPURLResponse else { return }
-                guard (200..<300) ~= response.statusCode else {
-                    observer(.failure(NetworkError.response(code: response.statusCode)))
-                    return
+            guard let urlRequest = endPoint.urlRequest else { return continuation.resume(returning: .failure(.invaildURL)) }
+
+            urlSession.dataTask(with: urlRequest) { data, response, error in
+                guard error == nil else {
+                    return continuation.resume(returning: .failure(.network))
+                }
+
+                guard let httpURLResponse = response as? HTTPURLResponse else {
+                    return continuation.resume(returning: .failure(.httpResponse))
+                }
+
+                if httpURLResponse.statusCode == 400 {
+                    return continuation.resume(returning: .failure(.badRequest))
+                }
+
+                if httpURLResponse.statusCode == 401 {
+                    return continuation.resume(returning: .failure(.unauthorized))
+                }
+
+                if httpURLResponse.statusCode == 500 {
+                    return continuation.resume(returning: .failure(.internalServerError))
+                }
+
+                guard (200...299) ~= httpURLResponse.statusCode else {
+                    return continuation.resume(returning: .failure(.responseCode(code: httpURLResponse.statusCode)))
                 }
 
                 guard let data = data else {
-                    observer(.failure(NetworkError.emptyData))
-                    return
+                    return continuation.resume(returning: .failure(.emptyData))
                 }
-                observer(.success(data))
+
+                continuation.resume(returning: .success(data))
             }.resume()
-            return Disposables.create()
         }
     }
 }
-
