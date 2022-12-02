@@ -16,14 +16,21 @@ struct DrawingView: View {
             .ignoresSafeArea()
             .toolbar {
                 Button {
-                    dataRepository.update(DrawingItem(id: item.id, name: item.name, drawing: drawing))
-                } label: {
-                    Text("저장")
-                }
-                Button {
                     dataRepository.delete(item)
                 } label: {
                     Text("삭제")
+                        .foregroundColor(.red)
+                }
+                Button {
+                    // TODO: -
+                } label: {
+                    Text("AI 이미지 생성")
+                }
+                Button {
+                    dataRepository.update(DrawingItem(id: item.id, name: item.name, drawing: drawing))
+                } label: {
+                    Text("저장")
+                        .bold()
                 }
             }
             .navigationTitle(item.name == "" ? "제목 없음" : item.name)

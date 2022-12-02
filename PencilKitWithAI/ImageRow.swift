@@ -13,6 +13,7 @@ struct ImageRow: View {
     var body: some View {
         VStack {
             Image(uiImage: item.image())
+                .aspectRatio(contentMode: .fit)
                 .frame(width: 150, height: 150)
                 .padding()
                 .background()
