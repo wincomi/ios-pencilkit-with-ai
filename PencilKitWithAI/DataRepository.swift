@@ -6,7 +6,7 @@
 import Foundation
 import PencilKit
 
-final class DataRepository {
+final class DataRepository: ObservableObject {
     private var fileURL: URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentsDirectory = paths.first!
