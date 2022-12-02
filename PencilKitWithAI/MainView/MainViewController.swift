@@ -29,8 +29,11 @@ final class MainViewController: UIViewController {
         return collectionView
     }()
 
+    private let plusButton = UIBarButtonItem(image: UIImage(systemName: "plus"))
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = plusButton
 
         layoutCollectionView()
     }
@@ -48,6 +51,10 @@ extension MainViewController {
             .bind(to: collectionView.rx.items(cellIdentifier: DrawingCell.identifier,
                                               cellType: DrawingCell.self)) { _, image, cell in
                 cell.configure(with: image)}
+            .disposed(by: disposeBag)
+
+        plusButton.rx.tap
+            .bind(to: viewModel.input.plusButtonTapped)
             .disposed(by: disposeBag)
     }
 }

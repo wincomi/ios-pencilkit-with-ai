@@ -17,7 +17,13 @@ final class DrawingCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .red
+        imageView.backgroundColor = .systemBackground
+        imageView.layer.borderWidth = 1.0
+        imageView.layer.masksToBounds = false
+        imageView.layer.shadowColor = UIColor.black.cgColor
+        imageView.layer.shadowOffset = CGSize(width: 10, height: 10)
+        imageView.layer.shadowOpacity = 0.8
+        imageView.layer.shadowRadius = 5.0
         return imageView
     }()
 
