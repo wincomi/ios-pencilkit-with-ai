@@ -11,11 +11,15 @@ struct ImageRow: View {
     @State var item: DrawingItem
     
     var body: some View {
-        Image(uiImage: item.image())
-            .frame(width: 100, height: 150)
-            .padding()
-            .background()
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .shadow(radius: 1, x: 0, y: 0)
+        VStack {
+            Image(uiImage: item.image())
+                .frame(width: 150, height: 150)
+                .padding()
+                .background()
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .shadow(radius: 1, x: 0, y: 0)
+            Text(item.name == "" ? "제목 없음" : item.name)
+                .foregroundColor(Color(uiColor: .label))
+        }
     }
 }
