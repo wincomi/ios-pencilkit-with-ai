@@ -12,6 +12,12 @@ struct DrawingItem: Codable, Identifiable {
     var drawing: PKDrawing
 }
 
+extension DrawingItem: Equatable {
+    static func == (lhs: DrawingItem, rhs: DrawingItem) -> Bool {
+        lhs.id == rhs.id
+    }
+}
+
 extension DrawingItem {
     func image(width: Int = 1024, height: Int = 1024) -> UIImage {
         drawing.image(from: CGRect(x: 0, y: 0, width: width, height: height), scale: UIScreen.main.scale)

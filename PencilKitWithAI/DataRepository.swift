@@ -53,6 +53,12 @@ final class DataRepository: ObservableObject {
         save()
     }
     
+    public func update(_ item: DrawingItem) {
+        let index = dataModel.drawingItems.firstIndex { $0 == item }
+        dataModel.drawingItems[index!] = item
+        save()
+    }
+    
     public func insertDrawing(_ drawing: PKDrawing = PKDrawing(), name: String = "") {
         let item = DrawingItem(name: name, drawing: drawing)
         dataModel.drawingItems.append(item)
