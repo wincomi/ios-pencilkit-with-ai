@@ -65,7 +65,7 @@ private extension MainViewController {
         view.addSubview(collectionView)
 
         collectionView.snp.makeConstraints { make in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
+            make.edges.equalTo(view.safeAreaLayoutGuide).inset(16)
         }
     }
 }

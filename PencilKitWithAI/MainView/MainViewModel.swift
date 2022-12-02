@@ -15,6 +15,7 @@ final class MainViewModel {
     struct Input {
         let viewDidLoad = PublishRelay<Void>()
         let plusButtonTapped = PublishRelay<Void>()
+        let touchedCell = PublishRelay<IndexPath>()
     }
 
     struct Output {
@@ -32,6 +33,5 @@ final class MainViewModel {
             .scan([UIImage](), accumulator: +)
             .bind(to: output.loadedThumbnail)
             .disposed(by: disposeBag)
-        
     }
 }
